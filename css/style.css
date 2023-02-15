@@ -1,0 +1,197 @@
+/*
+ *
+ * General Info
+ *
+ * The following set of styling rules is hand-written mobile-first.
+ * It is organized and categorized by the section of the website it defines.
+ * To find rules related to other device sizes, search under the main-level sections
+ * entitled "Desktop Styling Rules" and "Tablet Styling Rules"
+ *
+ * - Atlas Web Development
+ *
+ */
+
+
+
+/*
+ *
+ * Global Rules
+ *
+ * Styling rules related to the site's global layout and similar overarching elements
+ *
+ */
+
+@font-face {
+    font-family: "...";
+    src: url("../fonts/...");
+}
+
+html {
+
+    background-color: #000;
+    color: #A0A0A0;
+
+}
+
+/*
+ *
+ * Navigation Rules
+ *
+ * Styling rules related to the site's navigation, written mobile-first.
+ *
+ */
+
+.header {
+
+    width: 100%;
+    top: 0;
+
+}
+
+#brand {
+
+    width: 100px;
+    margin: 15px;
+    position: absolute;
+
+}
+
+.nav {
+
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+}
+
+.menu {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    
+}
+
+.menu a {
+
+    color: #A0A0A0;
+    text-decoration: none;
+    display: block;
+    padding: 30px;
+    font-size: 24px;
+
+}
+
+.menu a:hover {
+
+    color: #dedede;
+
+}
+
+.nav {
+
+    max-height: 0;
+    margin-bottom: 50px;
+    transition: max-height .1s ease-out;
+
+}
+
+/* Hamburger Icon */
+
+.hamb {
+
+    cursor: pointer;
+    float: right;
+    padding: 40px 20px;
+
+}
+
+.hamb-line {
+
+    background-color: #FFF  ;
+    display: block;
+    height: 3px;
+    position: relative;
+    width: 24px;
+
+}
+
+.hamb-line::before,
+.hamb-line::after {
+
+    background-color: #FFF;
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    transition: all 0.2s ease-out;
+
+}
+
+.hamb-line::before{
+
+    top: 10px;
+
+}
+.hamb-line::after{
+
+    top: -10px;
+
+}
+
+.side-menu {
+
+    display: none;
+
+}
+
+.side-menu:checked ~ nav {
+
+    max-height: 100%;
+
+}
+
+.side-menu:checked ~ .hamb .hamb-line {
+
+    background: transparent;
+
+}
+
+.side-menu:checked ~ .hamb .hamb-line::before {
+    transform: rotate(-45deg);
+    top:0;
+}
+.side-menu:checked ~ .hamb .hamb-line::after {
+    transform: rotate(45deg);
+    top:0;
+}
+
+
+/*
+ *
+ * Desktop Styling Rules
+ *
+ * Styling breakpoint for desktop computers and laptops
+ *
+ */
+
+@media only screen and (min-width: 1224px){
+
+    /* Navigation */
+    .hamb {
+        display: none;
+    }
+
+    .nav {
+        max-height: 100%;
+    }
+
+    .menu {
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+
+}
